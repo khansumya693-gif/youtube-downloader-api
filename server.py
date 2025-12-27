@@ -36,13 +36,13 @@ def info():
 
         # ২. নতুন ডাটা সংগ্রহ
         ydl_opts = {
-            "quiet": True,
-            "skip_download": True,
-            "format": "best[height<=360][ext=mp4]/best[ext=mp4]/best",
-            "cookiefile": "cookies.txt",  # এই লাইনটি যোগ করুন
-            "nocheckcertificate": True,
-            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        }
+    "quiet": True,
+    "skip_download": True,
+    "format": "best[height<=360][ext=mp4][protocol=https]/best[ext=mp4][protocol=https]/best[protocol=https]",
+    "cookiefile": "cookies.txt",
+    "nocheckcertificate": True,
+}
+
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             data = ydl.extract_info(url, download=False)
@@ -51,14 +51,18 @@ def info():
         final_formats = []
 
         for f in all_formats:
-            if f.get('vcodec') != 'none' and f.get('acodec') != 'none':
-                final_formats.append({
-                    "format_id": f.get("format_id"),
-                    "resolution": f.get("format_note") or f.get("resolution"),
-                    "extension": f.get("ext"),
-                    "filesize_mb": round(f.get("filesize", 0) / (1024 * 1024), 2) if f.get("filesize") else "Unknown",
-                    "url": f.get("url")
-                })
+    
+    if f.get('vcodec') != 'none' and f.get('acodec') != 'none':
+        video_url = f.get("url", "")
+        if "manifest" not in video_url and "m3u8" not in video_url:
+            final_formats.append({
+                "format_id": f.get("format_id"),
+                "resolution": f.get("format_note") or f.get("resolution"),
+                "extension": f.get("ext"),
+                "filesize_mb": round(f.get("filesize", 0) / (1024 * 1024), 2) if f.get("filesize") else "Unknown",
+                "url": video_url
+            })
+
 
         response_data = {
             "title": data.get("title"),
