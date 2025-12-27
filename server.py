@@ -9,7 +9,7 @@ from pymongo import MongoClient
 app = Flask(__name__)
 CORS(app)
 
-username = urllib.parse.quote_plus("Sumyakhan")
+username = urllib.parse.quote_plus("Sumyakhan@admin")
 password = urllib.parse.quote_plus("Sumya1234@#")
 
 # এখানে আপনার সংগৃহীত মঙ্গোডিবি লিঙ্কটি দিন
