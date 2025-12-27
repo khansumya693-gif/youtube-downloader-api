@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS 
 import yt_dlp
 import re
 
 app = Flask(__name__)
+CORS(app)  
 
 # ইউটিউব লিংক যাচাই করার রেজেক্স
 YOUTUBE_REGEX = r"(youtube\.com|youtu\.be)"
