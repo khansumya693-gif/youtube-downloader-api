@@ -1,17 +1,142 @@
-# Netscape HTTP Cookie File
-# https://curl.haxx.se/rfc/cookie_spec.html
-# This is a generated file! Do not edit.
-
-.youtube.com	TRUE	/	TRUE	1800979405	SOCS	CAESNQgDEitib3FfaWRlbnRpdHlmcm9udGVuZHVpc2VydmVyXzIwMjUwNTI3LjA3X3AwGgJlbiACGgYIgOrjwQY
-.youtube.com	TRUE	/	TRUE	1801411816	PREF	tz=Asia.Dhaka
-.youtube.com	TRUE	/	TRUE	1798387811	__Secure-1PSIDTS	sidts-CjUBflaCdaf8pzTb1PnXreZbTTpQXalAYDp-N_ncxiXiJc-aQWW-hqn1BZgCbPySKjtqShCCYRAA
-.youtube.com	TRUE	/	TRUE	1798387811	__Secure-3PSIDTS	sidts-CjUBflaCdaf8pzTb1PnXreZbTTpQXalAYDp-N_ncxiXiJc-aQWW-hqn1BZgCbPySKjtqShCCYRAA
-.youtube.com	TRUE	/	TRUE	1801411811	__Secure-3PAPISID	3G6oz-v4wIdS-CGj/Af3pEUtbySFNj9i5e
-.youtube.com	TRUE	/	TRUE	1801411811	__Secure-3PSID	g.a0004ghJx89E7RNhvOVzsCmr7a1AmxFkceu2ANzf9njzYo5cnxMUgkzj5htitd2Ex3XrhbEb7AACgYKAY0SARESFQHGX2Mi2XNrPnPrdasASX5ViqCE0xoVAUF8yKrNRStPoeaV5dX6ZibzXP_S0076
-.youtube.com	TRUE	/	TRUE	1801411816	LOGIN_INFO	AFmmF2swRQIhAJGqo_If8tscOt3lYmm1T7J3-EvUf5hwSKNTCwP_6Kc9AiBNYdoeqpX0okYYr6EMY_PXKUtZRFGOPdNaWHpyj74uEw:QUQ3MjNmemdsNlNLUE9WNlRXS0lvemhmbF9kc2dtRHZjUVMycW5VTEMzRWdzLWVYU19kdFM3VFUxLXlDZEhxRWQ5N2Zadm4zamZiSkpvUUtVN2czcktJTzdUVmVDODRsMExlZEhvc2NNajhXTnE0VjRUdWdVWUM2cWNYcEtFbk1UNW9lZi13WmNoWW92cTFJWWZBdkdkRF9LU3BRU2s2cGN3
-.youtube.com	TRUE	/	TRUE	1800979792	__Secure-YEC	CgtfenF6TWhEWWpobyjnicDKBjIKCgJCRBIEGgAgIw%3D%3D
-.youtube.com	TRUE	/	TRUE	1798387840	__Secure-3PSIDCC	AKEyXzVcIfMJd3HZK6PMMpc9Ps3S-KB2fJe-E9B34n1Tn5gPvF0XaGCsMDTCAJvI6zhyK8BW
-.youtube.com	TRUE	/	TRUE	1782176186	__Secure-YNID	14.YT=TFyawpPcOufLsVhRkt5DWBEJONkT7bVbuS4pDmJd1gNVtIpSRvhwV6KuJy0OBkYog7ELEst0fFFicSyrmiT4UjgvzwlzzIWUDjs4WEW7yZOWt_fgBsVX_89oayeTEJ6jvTDNzPKnZyHueTPw0spiW__l8XU-BYMQU1k6Jql3CHpXkpAftuxzK2VTc_kwIRuiMzIWekjwkRVcoNpWG4LoM5xspQtijd-WP0VmopO7Z9_ONdBPx7T4NXr7q6d6FAvIbOVBqVNhNLK94Urea8tqHKOJP-RhtKFcjZGjKqgmmUFvD3y3WWTTgBBOJ571NkTqlNDn7H_sacAtSGUioF0SnA
-.youtube.com	TRUE	/	TRUE	0	YSC	VTVvAUir0SM
-.youtube.com	TRUE	/	TRUE	1800979816	VISITOR_PRIVACY_METADATA	CgJCRBIEGgAgIw%3D%3D
-.youtube.com	TRUE	/	TRUE	1782403814	__Secure-ROLLOUT_TOKEN	CL7UqpWF7tf1sAEQvbmX-cPXkQMYyfDW9JPekQM%3D
+[
+{
+    "domain": ".youtube.com",
+    "expirationDate": 1798387811.276877,
+    "hostOnly": false,
+    "httpOnly": true,
+    "name": "__Secure-1PSIDTS",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "sidts-CjUBflaCdaf8pzTb1PnXreZbTTpQXalAYDp-N_ncxiXiJc-aQWW-hqn1BZgCbPySKjtqShCCYRAA",
+    "id": 1
+},
+{
+    "domain": ".youtube.com",
+    "expirationDate": 1801411811.281969,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "__Secure-3PAPISID",
+    "path": "/",
+    "sameSite": "no_restriction",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "3G6oz-v4wIdS-CGj/Af3pEUtbySFNj9i5e",
+    "id": 2
+},
+{
+    "domain": ".youtube.com",
+    "expirationDate": 1801411811.282281,
+    "hostOnly": false,
+    "httpOnly": true,
+    "name": "__Secure-3PSID",
+    "path": "/",
+    "sameSite": "no_restriction",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "g.a0004ghJx89E7RNhvOVzsCmr7a1AmxFkceu2ANzf9njzYo5cnxMUgkzj5htitd2Ex3XrhbEb7AACgYKAY0SARESFQHGX2Mi2XNrPnPrdasASX5ViqCE0xoVAUF8yKrNRStPoeaV5dX6ZibzXP_S0076",
+    "id": 3
+},
+{
+    "domain": ".youtube.com",
+    "expirationDate": 1798388765.496462,
+    "hostOnly": false,
+    "httpOnly": true,
+    "name": "__Secure-3PSIDCC",
+    "path": "/",
+    "sameSite": "no_restriction",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "AKEyXzVORXutISaLyzfyVZNV_iujy6QZdkCLwiYnPfcxRDfDbjYvfTJjVEOB6y4XrRXg88p9",
+    "id": 4
+},
+{
+    "domain": ".youtube.com",
+    "expirationDate": 1798387811.279329,
+    "hostOnly": false,
+    "httpOnly": true,
+    "name": "__Secure-3PSIDTS",
+    "path": "/",
+    "sameSite": "no_restriction",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "sidts-CjUBflaCdaf8pzTb1PnXreZbTTpQXalAYDp-N_ncxiXiJc-aQWW-hqn1BZgCbPySKjtqShCCYRAA",
+    "id": 5
+},
+{
+    "domain": ".youtube.com",
+    "expirationDate": 1800979791.495059,
+    "hostOnly": false,
+    "httpOnly": true,
+    "name": "__Secure-YEC",
+    "path": "/",
+    "sameSite": "lax",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "CgtfenF6TWhEWWpobyidkcDKBjIKCgJCRBIEGgAgIw%3D%3D",
+    "id": 6
+},
+{
+    "domain": ".youtube.com",
+    "expirationDate": 1801411815.71669,
+    "hostOnly": false,
+    "httpOnly": true,
+    "name": "LOGIN_INFO",
+    "path": "/",
+    "sameSite": "no_restriction",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "AFmmF2swRQIhAJGqo_If8tscOt3lYmm1T7J3-EvUf5hwSKNTCwP_6Kc9AiBNYdoeqpX0okYYr6EMY_PXKUtZRFGOPdNaWHpyj74uEw:QUQ3MjNmemdsNlNLUE9WNlRXS0lvemhmbF9kc2dtRHZjUVMycW5VTEMzRWdzLWVYU19kdFM3VFUxLXlDZEhxRWQ5N2Zadm4zamZiSkpvUUtVN2czcktJTzdUVmVDODRsMExlZEhvc2NNajhXTnE0VjRUdWdVWUM2cWNYcEtFbk1UNW9lZi13WmNoWW92cTFJWWZBdkdkRF9LU3BRU2s2cGN3",
+    "id": 7
+},
+{
+    "domain": ".youtube.com",
+    "expirationDate": 1801412767.004513,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "PREF",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "tz=Asia.Dhaka",
+    "id": 8
+},
+{
+    "domain": ".youtube.com",
+    "expirationDate": 1800979405,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "SOCS",
+    "path": "/",
+    "sameSite": "lax",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "CAESNQgDEitib3FfaWRlbnRpdHlmcm9udGVuZHVpc2VydmVyXzIwMjUwNTI3LjA3X3AwGgJlbiACGgYIgOrjwQY",
+    "id": 9
+},
+{
+    "domain": ".youtube.com",
+    "expirationDate": 1766852815,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "ST-131ww05",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": false,
+    "session": false,
+    "storeId": "0",
+    "value": "csn=hn7APjaA2kcjfME_&itct=CJQBEPxaGAAiEwjursy7l96RAxVynWwJHagHPLUyB3JlbGF0ZWRI-JOuzsbLhJPhAZoBBQgBEPgdygEEySl96A%3D%3D",
+    "id": 10
+}
+]
