@@ -1,30 +1,44 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS 
+from flask_cors import CORS
 import yt_dlp
 import re
+import time
+from pymongo import MongoClient
 
 app = Flask(__name__)
-CORS(app)  
+CORS(app)
 
-# ইউটিউব লিংক যাচাই করার রেজেক্স
+# এখানে আপনার সংগৃহীত মঙ্গোডিবি লিঙ্কটি দিন
+MONGO_URI = "mongodb+srv://Sumyakhan:<Sumya1234@#>@cluster0.1toogst.mongodb.net/?appName=Cluster0"
+client = MongoClient(MONGO_URI)
+db = client['youtube_downloader']
+collection = db['link_cache']
+
 YOUTUBE_REGEX = r"(youtube\.com|youtu\.be)"
 
 @app.route("/info")
 def info():
     url = request.args.get("url", "")
-
     if not url or not re.search(YOUTUBE_REGEX, url):
         return jsonify({"error": "একটি সঠিক ইউটিউব লিংক দিন"}), 400
 
-    # yt-dlp কনফিগারেশন
-    ydl_opts = {
-        "quiet": True,
-        "skip_download": True,
-        # ৩৬০পি এবং সাউন্ডসহ ফাইলটি আগে খোঁজার চেষ্টা করবে
-        "format": "best[height<=360][ext=mp4]/best[ext=mp4]/best",
-    }
+    current_time = time.time()
 
     try:
+        # ১. ডাটাবেসে চেক করা (Caching Logic)
+        cached_data = collection.find_one({"video_url": url})
+        if cached_data:
+            # চেক: ২১৬০০ সেকেন্ড = ৬ ঘণ্টা
+            if current_time - cached_data['timestamp'] < 21600:
+                return jsonify(cached_data['data'])
+
+        # ২. নতুন ডাটা সংগ্রহ
+        ydl_opts = {
+            "quiet": True,
+            "skip_download": True,
+            "format": "best[height<=360][ext=mp4]/best[ext=mp4]/best",
+        }
+
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             data = ydl.extract_info(url, download=False)
 
@@ -32,32 +46,33 @@ def info():
         final_formats = []
 
         for f in all_formats:
-            # শর্ত: ভিডিও কোডেক এবং অডিও কোডেক দুটোই থাকতে হবে (none হওয়া যাবে না)
             if f.get('vcodec') != 'none' and f.get('acodec') != 'none':
-                # শুধুমাত্র দরকারি তথ্যগুলো ফিল্টার করে নিচ্ছি
                 final_formats.append({
                     "format_id": f.get("format_id"),
                     "resolution": f.get("format_note") or f.get("resolution"),
                     "extension": f.get("ext"),
                     "filesize_mb": round(f.get("filesize", 0) / (1024 * 1024), 2) if f.get("filesize") else "Unknown",
-                    "url": f.get("url")  # এই লিংকে সাউন্ড থাকবেই
+                    "url": f.get("url")
                 })
 
-        # যদি কোনো কম্বাইন্ড ফরম্যাট না পাওয়া যায়
-        if not final_formats:
-            return jsonify({"error": "সাউন্ডসহ কোনো ভিডিও ফরম্যাট পাওয়া যায়নি"}), 404
-
-        return jsonify({
+        response_data = {
             "title": data.get("title"),
-            "duration_sec": data.get("duration"),
             "thumbnail": data.get("thumbnail"),
             "channel": data.get("uploader"),
             "formats": final_formats
-        })
+        }
+
+        # ৩. ডাটাবেসে সেভ বা আপডেট করা
+        collection.update_one(
+            {"video_url": url},
+            {"$set": {"timestamp": current_time, "data": response_data}},
+            upsert=True
+        )
+
+        return jsonify(response_data)
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    # Render বা অন্য প্ল্যাটফর্মে হোস্টিং করার জন্য উপযুক্ত পোর্ট
     app.run(host="0.0.0.0", port=5000)
