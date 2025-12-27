@@ -9,8 +9,8 @@ from pymongo import MongoClient
 app = Flask(__name__)
 CORS(app)
 
-username = urllib.parse.quote_plus("Sumyakhan@admin")
-password = urllib.parse.quote_plus("Sumya1234@#")
+username = urllib.parse.quote_plus("Sumyakhan")
+password = urllib.parse.quote_plus("Zw2BA7BMOtbs7lbJ")
 
 # এখানে আপনার সংগৃহীত মঙ্গোডিবি লিঙ্কটি দিন
 MONGO_URI = "mongodb+srv://{username}:{password}@cluster0.1toogst.mongodb.net/?appName=Cluster0"
