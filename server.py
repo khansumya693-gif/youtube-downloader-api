@@ -3,13 +3,17 @@ from flask_cors import CORS
 import yt_dlp
 import re
 import time
+import urllib.parse
 from pymongo import MongoClient
 
 app = Flask(__name__)
 CORS(app)
 
+username = urllib.parse.quote_plus("Sumyakhan")
+password = urllib.parse.quote_plus("Sumya1234@#")
+
 # এখানে আপনার সংগৃহীত মঙ্গোডিবি লিঙ্কটি দিন
-MONGO_URI = "mongodb+srv://Sumyakhan:<Sumya1234@#>@cluster0.1toogst.mongodb.net/?appName=Cluster0"
+MONGO_URI = "mongodb+srv://{username}:{password}@cluster0.1toogst.mongodb.net/?appName=Cluster0"
 client = MongoClient(MONGO_URI)
 db = client['youtube_downloader']
 collection = db['link_cache']
